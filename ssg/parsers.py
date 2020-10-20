@@ -1,3 +1,5 @@
+import shutil
+
 from typing import List
 from pathlib import Path
 
@@ -24,3 +26,13 @@ class Parser:
 
         with open(full_path, "w") as file:
             file.write(content)
+
+    def copy(self, path, source, dest):
+        shutil.copy2(path, dest / path.relate_to(source))
+
+
+class ResourceParser(Parser):
+    extensions = [".jpg", ".png", ".gif", ".css", ".html"]
+
+    def parse(self, path: Path, source: Path, dest: Path):
+        self.copy(path, source, dest)
