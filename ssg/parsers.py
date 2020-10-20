@@ -11,3 +11,6 @@ class Parser:
         # To validate if a file have a parser, check if the extension part of
         # the class extensions variable.
         return extension in self.extensions
+
+    def parse(self, path: Path, source: Path, dest: Path):
+        return NotImplementedError
