@@ -14,3 +14,7 @@ class Parser:
 
     def parse(self, path: Path, source: Path, dest: Path):
         return NotImplementedError
+
+    def read(self, path):
+        with open(path, "r") as file:
+            return file.read()
