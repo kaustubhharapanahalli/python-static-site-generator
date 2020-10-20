@@ -2,9 +2,10 @@ from pathlib import Path
 
 
 class Site:
-    def __init__(self, source, dest):
+    def __init__(self, source, dest, parsers=None):
         self.source = Path(source)
         self.dest = Path(dest)
+        self.parsers = parsers or []
 
     def create_dir(self, path):
         # Defining the path of the directory where the first part of the path
